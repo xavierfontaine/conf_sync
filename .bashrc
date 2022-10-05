@@ -138,6 +138,7 @@ alias gcp-up='gcloud compute instances start llm-x --project=zeals-analytics-dev
 alias gcp-ssh-terminal='gcloud compute ssh --project=zeals-analytics-dev --zone=us-central1-c jupyter@llm-x'
 alias gcp-down='gcloud compute instances stop llm-x --project=zeals-analytics-dev --zone=us-central1-c'
 alias gcp-foward='gcloud compute ssh llm-x     --project zeals-analytics-dev --zone us-central1-c -- -NL 8080:localhost:8081'
+alias gpustat='gpustat -cp --watch'
 
 # CUSTOM FUNCTIONS
 rgrep() {
@@ -156,3 +157,19 @@ eval "$(pyenv init -)"
 
 #Startship
 eval "$(starship init bash)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jupyter/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jupyter/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jupyter/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jupyter/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
